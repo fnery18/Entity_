@@ -5,12 +5,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Http.Cors;
 using System.Web.Mvc;
 
 namespace Fiap.Exemplo02.MVC.Web.Controllers
 {
+    [EnableCors(origins:"*",headers:"*",methods:"*")]
     public class AlunoController : Controller
     {
+
         #region FIELD
 
         //private PortalContext _context = new PortalContext();
