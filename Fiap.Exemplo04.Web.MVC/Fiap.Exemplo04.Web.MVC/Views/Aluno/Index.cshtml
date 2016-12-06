@@ -5,7 +5,16 @@
 
 <h2>Lista dos melhores alunos</h2>
 
-<table>
+<form id="CadastraAluno">
+    <input type="text" id="Nome" name="Nome" placeholder="Nome.." class="form-control" />
+    <label>Bolsa</label><input type="checkbox" id="Bolsa" name="Bolsa" class="" />
+    <input type="text" id="Desconto" name="Desconto" placeholder="Desconto.." class="form-control" />
+    <input type="text" name="Data" id="Data" placeholder="Data de nascimento.." class="form-control" />
+    <input type="text" name="Grupo" id="Grupo" placeholder="Grupo" class="form-control" />
+    <input type="submit" class="input-sm btn"/>
+</form>
+
+<table class="table-bordered">
     <thead>
         <tr>
             <th>Nome</th>
@@ -20,19 +29,50 @@
 
 @section scripts{
 <script>
-    $.ajax({
-        url: "http://localhost:58692/api/aluno/",
-        method: "GET",
-        success: function (data) {
-            $.each(data, function (index, item) {
-                var linha = $("<tr>");
-                linha.append($("<td>").text(item.nome));
-                linha.append($("<td>").text(item.bolsa));
-                linha.append($("<td>").text(item.desconto));
-                linha.append($("<td>").text(item.dataNascimento));
-
-            });
-        }
+    $().ready(function () {
+        listar();
     });
+    $('#CadastraAluno').submit(processar);
+    function listar() {
+        $.ajax({
+            url: "http://localhost:58692/api/aluno/",
+            method: "GET",
+            success: function (data) {
+                $.each(data, function (index, item) {
+                    //Criar uma nova linha
+                    var linha = $("<tr>");
+                    linha.append($("<td>").text(item.Nome));
+                    linha.append($("<td>").text(item.Bolsa));
+                    linha.append($("<td>").text(item.Desconto));
+                    linha.append($("<td>").text(item.DataNascimento));
+
+                    $("tbody").append(linha);
+                });
+            }
+        })
+    }
+    function processar(e) {
+        $.ajax({
+            url: "http://localhost:58692/api/aluno/",
+            type: "POST",
+            dataType: "json",
+            data: {
+                "Nome" : $("#Nome").val(),
+                "DataNascimento" : $("#Data").val(),
+                "Bolsa" : $("#Bolsa").is(":checked"),
+                "Desconto": $("#Desconto").val(),
+                "GrupoId" : 1
+               
+            },
+            success: function (data, statusString, xhr) {
+                alert("Sucesso!");
+                listar();
+            },
+            error: function (data, statusString, xhr) {
+                alert("Erro!");
+            }
+        });
+    }
+   
 </script>
 }
