@@ -107,7 +107,17 @@ namespace Fiap.Exemplo02.MVC.Web.Controllers
                     GrupoId = alunoViewModel.GrupoId
                 };
                 _unit.AlunoRepository.Cadastrar(aluno);
-                _unit.Salvar();
+                try
+                {
+                    _unit.Salvar();
+                }
+                catch(Exception e)
+                {
+                    alunoViewModel.Mensagem = "Erro - " + e.Message; //msg erro
+                    alunoViewModel.ListaGrupo = ListarGrupos();
+                    return View(alunoViewModel);
+                }
+                
                 return RedirectToAction("Cadastrar", new { msg = "Aluno Cadastrado" });
             }
             else
