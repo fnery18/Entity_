@@ -14,6 +14,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiap.Exemplo02.Service", "Fiap.Exemplo02.Service\Fiap.Exemplo02.Service.csproj", "{720DE544-A9F2-49C8-988F-FFBBFDFB6652}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiap.Exemplo02.Persistencia.Test", "Fiap.Exemplo02.Persistencia.Test\Fiap.Exemplo02.Persistencia.Test.csproj", "{CC3C2513-79F1-4104-B42E-3B010F0CFE58}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A4DC388D-1050-42E4-9E27-E00B38259BC6} = {A4DC388D-1050-42E4-9E27-E00B38259BC6}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiap.Exemplo05.MVC.Web", "Fiap.Exemplo05.MVC.Web\Fiap.Exemplo05.MVC.Web.csproj", "{F2FBD041-DED7-45CC-A574-9AE7D872C9CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +52,10 @@ Global
 		{CC3C2513-79F1-4104-B42E-3B010F0CFE58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC3C2513-79F1-4104-B42E-3B010F0CFE58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC3C2513-79F1-4104-B42E-3B010F0CFE58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2FBD041-DED7-45CC-A574-9AE7D872C9CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2FBD041-DED7-45CC-A574-9AE7D872C9CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2FBD041-DED7-45CC-A574-9AE7D872C9CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2FBD041-DED7-45CC-A574-9AE7D872C9CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
