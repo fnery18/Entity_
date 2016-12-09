@@ -33,6 +33,12 @@ namespace Fiap.Exemplo02.Persistencia.Test
 
             _repository.Cadastrar(aluno);
 
+            int r = _context.SaveChanges(); // retorna qtd de linhas afetadas
+
+            Assert.AreEqual(1, r); 
+
+            //oou Assert.AreNotEqual(aluno.Id,0);
+
 
         }
     }
